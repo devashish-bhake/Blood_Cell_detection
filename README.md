@@ -19,12 +19,14 @@ pip install -r requirements.txt
 
 ```
 3. Then Clone This repository which contains the images and the labels for the project in the "Dataset_main folder"
-4. Run the following python code to split the dataset into training and testing sets,
+4. Visualize an example image with annotations
+![example](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/test.jpg)
+5. Run the following python code to split the dataset into training and testing sets,
 ```
 python ./ train_test_val_split.py
 ```
-5. Three folders will be created where all the images and their corresponding labels will be stored for training, testing and validation purposes
-6. Now we have to create a "data.yaml" file using the code editor and paste the following info in it,
+6. Three folders will be created where all the images and their corresponding labels will be stored for training, testing and validation purposes
+7. Now we have to create a "data.yaml" file using the code editor and paste the following info in it,
 ```yaml 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
 
@@ -77,11 +79,42 @@ In order to do this run the following command,
 ```
 python ./yolov5/detect.py --weights ./yolov5/runs/train/exp/weights/best.pt --img 640 --conf 0.4 --source ./test/images
 ```
+The images along with the detected items and bounding boxes are saved at location
+```
+./yolov5/runs/detect/exp
+```
+#### Example of detected and labeled image by the model
+![example_labeled_image](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/BloodImage_00003.jpg)
 
 
 
 
 
+## Metrics of Measurement
+The metrics of measurements are the results of training and validation that we have found during the training phase
+
+### Training Metrics
+#### Mean Absolute Precision(mAP)
+- mAP 0.5 = 0.9165
+![mAP_0.5](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/mAP_0.5.png)
+- mAP 0.5:0.95 = 0.6343
+![mAP_0.5_0.95](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/mAP_0.5_0.95.png)
+
+#### Precision = 0.87347
+![Precision](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/precision.png)
+
+#### Recall = 0.88803
+![Recall](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/recall.png)
+
+### Validation Metrics
+#### Bbox loss = 0.024645
+![bbox_loss](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/val_loss_bbox.png)
+
+#### Classification Loss = 0.0014725
+![clf_loss](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/val_classification_loss.png)
+
+#### Object Presence Confidence Loss = 0.095326
+![obj_loss](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/object_presence_confidence_loss.png)
 ## Acknowledgements
 1. Author who compiled the annotations for the dataset
  - [Shenggan](https://github.com/Shenggan/BCCD_Dataset)
