@@ -96,8 +96,10 @@ The metrics of measurements are the results of training and validation that we h
 ### Training Metrics
 #### Mean Absolute Precision(mAP)
 - mAP 0.5 = 0.9165
+
 ![mAP_0.5](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/mAP_0.5.png)
 - mAP 0.5:0.95 = 0.6343
+
 ![mAP_0.5_0.95](https://raw.githubusercontent.com/devashish-bhake/Blood_Cell_detection/main/Utilities/mAP_0.5_0.95.png)
 
 #### Precision = 0.87347
