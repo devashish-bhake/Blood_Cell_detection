@@ -25,9 +25,9 @@ def yolo_to_xml_bbox(bbox, w, h):
 
 
 classes = []
-input_dir = "D:/kaggle_practice/Blood_Cell_Detection/BCCD_Dataset/BCCD/Annotations"
+input_dir = "../Path/to/any/xml/annotations"
 output_dir = "labels/"
-image_dir = "D:/kaggle_practice/Blood_Cell_Detection/BCCD_Dataset/BCCD/JPEGImages"
+image_dir = "./path/to/the/corresponding/images"
 
 # create the labels folder (output directory)
 if not os.path.isdir(output_dir):
