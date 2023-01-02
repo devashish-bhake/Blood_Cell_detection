@@ -42,7 +42,9 @@ names:
 # Download script/URL (optional) it will be treated as optional and not hamper the training process
 download: https://ultralytics.com/assets/coco128.zip
 ```
-7. In order to begin the training remember,
+## Demo
+
+In order to begin the training remember,
 - select the base model according to the available hardware
 - if training on local machines use CPU as training device
 - if training on colab/kaggle notebooks you can use the gpu or even multi-gpu parallelization
@@ -56,7 +58,7 @@ The commands for training are:
 
 CPU:
 
-```
+```bash
 python ./yolov5/train.py --img 640 --batch 8 --epochs 50 --data ./data.yaml --workers 1 --weights yolov5s.pt --device cpu
 ```
 Single GPU:
@@ -70,6 +72,16 @@ python -m torch.distributed.run --nproc_per_node 2 train.py --batch 16 --data da
 In multi gpu training you can use the number of gpus you have by changing --device argument to 0,1,2 for 3 gpus and 0,1 for 2 gpus
 and tweak the load that the gpus share by editing the nproc_per_node 2 to any number of processes that the gpus have to run simultaneously.
 
+After the training is done we can perform the predictions on the testing set for seeing the results of the trained model.
+In order to do this run the following command,
+```
+python ./yolov5/detect.py --weights ./yolov5/runs/train/exp/weights/best.pt --img 640 --conf 0.4 --source ./test/images
+```
+
+
+
+
+
 ## Acknowledgements
 1. Author who compiled the annotations for the dataset
  - [Shenggan](https://github.com/Shenggan/BCCD_Dataset)
@@ -77,3 +89,7 @@ and tweak the load that the gpus share by editing the nproc_per_node 2 to any nu
  - [cosmicad](https://github.com/cosmicad/dataset)
  - [akshaylamba](https://github.com/akshaylamba/all_CELL_data)
 
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
